@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Bowery/prompt"
+	// "github.com/Bowery/prompt"
 	"github.com/bndr/gotabulate"
 	"github.com/joliv/spark"
 	stdn "github.com/traetox/speedtest/speedtestdotnet"
@@ -84,11 +84,12 @@ func main() {
 	fmt.Printf("%s", t.Render(tableFormat))
 	fmt.Printf("Enter server ID for bandwidth test, or \"quit\" to exit\n")
 	for {
-		s, err := prompt.Basic("ID> ", true)
-		if err != nil {
-			fmt.Printf("input failure \"%v\"\n", err)
-			os.Exit(-1)
-		}
+		// s, err := prompt.Basic("ID> ", true)
+		// if err != nil {
+		// 	fmt.Printf("input failure \"%v\"\n", err)
+		// 	os.Exit(-1)
+		// }
+		s := "0"
 		//be REALLY forgiving on exit logic
 		if strings.HasPrefix(strings.ToLower(s), "exit") {
 			os.Exit(0)
@@ -216,5 +217,3 @@ func getSearchServers(cfg *stdn.Config, query string) ([]stdn.Testserver, error)
 	}
 	return testServers, nil
 }
-
-
